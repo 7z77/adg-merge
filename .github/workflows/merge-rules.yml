@@ -7,17 +7,17 @@ on:
 
 jobs:
   merge:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04          # 固定版本，避免 Ubuntu 26 迁移警告
     permissions:
       contents: write
 
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5   # 升级到 v5，解决 Node.js 20 警告
 
       - name: Setup Node.js
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v5 # 升级到 v5，解决 Node.js 20 警告
         with:
-          node-version: 20
+          node-version: 22          # 使用当前 LTS 版本
 
       - name: Install hostlist-compiler
         run: npm install -g @adguard/hostlist-compiler
