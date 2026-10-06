@@ -4,11 +4,13 @@
   "sources": [
     {
       "name": "Source 1",
-      "source": "https://anti-ad.net/easylist.txt"
+      "source": "https://anti-ad.net/easylist.txt",
+      "type": "adblock"
     },
     {
       "name": "Source 2",
-      "source": "https://raw.githubusercontent.com/217heidai/adblockfilters/main/rules/adblockdns.txt"
+      "source": "https://raw.githubusercontent.com/217heidai/adblockfilters/main/rules/adblockdns.txt",
+      "type": "adblock"
     }
   ],
   "transformations": [
