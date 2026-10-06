@@ -1,0 +1,19 @@
+{
+  "name": "Merged ADG Rules",
+  "description": "Two ADG rules merged and deduplicated",
+  "sources": [
+    {
+      "name": "Source 1",
+      "source": "https://anti-ad.net/easylist.txt"
+    },
+    {
+      "name": "Source 2",
+      "source": "https://raw.githubusercontent.com/217heidai/adblockfilters/main/rules/adblockdns.txt"
+    }
+  ],
+  "transformations": [
+    "RemoveComments",
+    "Deduplicate",
+    "Compress"
+  ]
+}
