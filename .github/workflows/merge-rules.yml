@@ -19,13 +19,13 @@ jobs:
         with:
           node-version: 20
 
-      - name: Install adblock-compiler
-        run: npm install -g @jk-com/adblock-compiler
+      - name: Install hostlist-compiler
+        run: npm install -g @adguard/hostlist-compiler
 
       - name: Compile and merge rules
         run: |
           mkdir -p merged
-          adblock-compiler -c config.json -o merged/adg-rules.txt
+          hostlist-compiler -c config.json -o merged/adg-rules.txt
 
       - name: Commit and push
         uses: stefanzweifel/git-auto-commit-action@v7
