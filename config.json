@@ -1,17 +1,26 @@
-"sources": [
-  {
-    "name": "HaGeZi Normal",
-    "source": "https://cdn.jsdelivr.net/gh/hagezi/dns-blocklists@latest/adblock/multi.txt",
-    "type": "adblock"
-  },
-  {
-    "name": "AdGuard DNS Filter",
-    "source": "https://raw.githubusercontent.com/AdguardTeam/AdguardFilters/master/BaseFilter/sections/adservers.txt",
-    "type": "adblock"
-  },
-  {
-    "name": "AWAvenue Ads Rule",
-    "source": "https://raw.githubusercontent.com/TG-Twilight/AWAvenue-Ads-Rule/main/AWAvenue-Ads-Rule.txt",
-    "type": "adblock"
-  }
-]
+{
+  "name": "Merged ADG Rules",
+  "description": "HaGeZi Normal + AdGuard DNS Filter + AWAvenue Ads Rule",
+  "sources": [
+    {
+      "name": "HaGeZi Normal",
+      "source": "https://cdn.jsdelivr.net/gh/hagezi/dns-blocklists@latest/adblock/multi.txt",
+      "type": "adblock"
+    },
+    {
+      "name": "AdGuard DNS Filter",
+      "source": "https://raw.githubusercontent.com/AdguardTeam/AdguardFilters/master/BaseFilter/sections/adservers.txt",
+      "type": "adblock"
+    },
+    {
+      "name": "AWAvenue Ads Rule",
+      "source": "https://raw.githubusercontent.com/TG-Twilight/AWAvenue-Ads-Rule/main/AWAvenue-Ads-Rule.txt",
+      "type": "adblock"
+    }
+  ],
+  "transformations": [
+    "RemoveComments",
+    "Deduplicate",
+    "Compress"
+  ]
+}
