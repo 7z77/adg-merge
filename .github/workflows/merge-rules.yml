@@ -1,0 +1,34 @@
+name: Merge ADG Rules
+
+on:
+  schedule:
+    - cron: '0 3 * * *'
+  workflow_dispatch:
+
+jobs:
+  merge:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Install adblock-compiler
+        run: npm install -g @jk-com/adblock-compiler
+
+      - name: Compile and merge rules
+        run: |
+          mkdir -p merged
+          adblock-compiler -c config.json -o merged/adg-rules.txt
+
+      - name: Commit and push
+        uses: stefanzweifel/git-auto-commit-action@v7
+        with:
+          commit_message: "chore: auto-merge ADG rules"
+          file_pattern: "merged/adg-rules.txt"
