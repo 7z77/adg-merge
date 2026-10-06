@@ -9,7 +9,7 @@
     },
     {
       "name": "AdGuard DNS Filter",
-      "source": "https://raw.githubusercontent.com/AdguardTeam/AdguardFilters/master/BaseFilter/sections/adservers.txt",
+      "source": "https://adguardteam.github.io/HostlistsRegistry/assets/filter_1.txt",
       "type": "adblock"
     },
     {
