@@ -1,6 +1,6 @@
 {
   "name": "Merged ADG Rules",
-  "description": "HaGeZi Normal + AdGuard DNS Filter + AWAvenue Ads Rule",
+  "description": "HaGeZi Normal + AdGuard DNS Filter + AWAvenue Ads Rule + miaoermua AdguardFilter",
   "sources": [
     {
       "name": "HaGeZi Normal",
@@ -15,6 +15,11 @@
     {
       "name": "AWAvenue Ads Rule",
       "source": "https://raw.githubusercontent.com/TG-Twilight/AWAvenue-Ads-Rule/main/AWAvenue-Ads-Rule.txt",
+      "type": "adblock"
+    },
+    {
+      "name": "miaoermua AdguardFilter",
+      "source": "https://raw.githubusercontent.com/miaoermua/AdguardFilter/main/rule.txt",
       "type": "adblock"
     }
   ],
