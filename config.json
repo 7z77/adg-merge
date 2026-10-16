@@ -1,10 +1,20 @@
 {
   "name": "Merged ADG Rules",
-  "description": "HaGeZi Normal + AdGuard DNS Filter + AWAvenue Ads Rule + miaoermua AdguardFilter",
+  "description": "HaGeZi Normal + PopUp + TIF + AdGuard DNS + AWAvenue + miaoermua",
   "sources": [
     {
       "name": "HaGeZi Normal",
       "source": "https://cdn.jsdelivr.net/gh/hagezi/dns-blocklists@latest/adblock/multi.txt",
+      "type": "adblock"
+    },
+    {
+      "name": "HaGeZi PopUp Ads",
+      "source": "https://cdn.jsdelivr.net/gh/hagezi/dns-blocklists@latest/adblock/popupads.txt",
+      "type": "adblock"
+    },
+    {
+      "name": "HaGeZi TIF Medium",
+      "source": "https://cdn.jsdelivr.net/gh/hagezi/dns-blocklists@latest/adblock/tif.medium.txt",
       "type": "adblock"
     },
     {
