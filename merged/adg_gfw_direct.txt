@@ -1,5 +1,5 @@
 ! Title: GFW Blocklist (Direct Clients Only)
-! Updated: 2026-10-16 07:59:47 UTC
+! Updated: 2026-10-16 18:53:33 UTC
 ||000webhost.com^$client='直连'
 ||0rz.tw^$client='直连'
 ||1-apple.com.tw^$client='直连'
