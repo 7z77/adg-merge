@@ -1,25 +1,10 @@
 {
   "name": "Merged ADG Rules",
-  "description": "HaGeZi Normal + PopUp + TIF + AdGuard DNS + AWAvenue + miaoermua",
+  "description": "anti-AD + AWAvenue Ads Rule + Anti-PCDN",
   "sources": [
     {
-      "name": "HaGeZi Normal",
-      "source": "https://cdn.jsdelivr.net/gh/hagezi/dns-blocklists@latest/adblock/multi.txt",
-      "type": "adblock"
-    },
-    {
-      "name": "HaGeZi PopUp Ads",
-      "source": "https://cdn.jsdelivr.net/gh/hagezi/dns-blocklists@latest/adblock/popupads.txt",
-      "type": "adblock"
-    },
-    {
-      "name": "HaGeZi TIF Medium",
-      "source": "https://cdn.jsdelivr.net/gh/hagezi/dns-blocklists@latest/adblock/tif.medium.txt",
-      "type": "adblock"
-    },
-    {
-      "name": "AdGuard DNS Filter",
-      "source": "https://adguardteam.github.io/HostlistsRegistry/assets/filter_1.txt",
+      "name": "anti-AD (DNS)",
+      "source": "https://raw.githubusercontent.com/privacy-protection-tools/anti-AD/master/anti-ad-adguard.txt",
       "type": "adblock"
     },
     {
@@ -28,8 +13,8 @@
       "type": "adblock"
     },
     {
-      "name": "miaoermua AdguardFilter",
-      "source": "https://raw.githubusercontent.com/miaoermua/AdguardFilter/main/rule.txt",
+      "name": "Anti-PCDN Blocklist",
+      "source": "https://raw.githubusercontent.com/ilovemikoto/anti-pcdn/master/rules/pcdn.txt",
       "type": "adblock"
     }
   ],
