@@ -1,6 +1,6 @@
 {
-  "name": "Merged ADG Rules",
-  "description": "anti-AD + AWAvenue Ads Rule + Anti-PCDN",
+  "name": "Merged ADG Rules (CN Optimized)",
+  "description": "anti-AD + AWAvenue (含PCDN) + HaGeZi DoH + HaGeZi Referral Allowlist",
   "sources": [
     {
       "name": "anti-AD (DNS)",
@@ -13,8 +13,13 @@
       "type": "adblock"
     },
     {
-      "name": "Anti-PCDN Blocklist",
-      "source": "https://raw.githubusercontent.com/ilovemikoto/anti-pcdn/master/rules/pcdn.txt",
+      "name": "HaGeZi DoH Blocklist",
+      "source": "https://raw.githubusercontent.com/hagezi/dns-blocklists/main/adblock/doh.txt",
+      "type": "adblock"
+    },
+    {
+      "name": "HaGeZi Referral Allowlist",
+      "source": "https://raw.githubusercontent.com/hagezi/dns-blocklists/main/adblock/whitelist-referral.txt",
       "type": "adblock"
     }
   ],
