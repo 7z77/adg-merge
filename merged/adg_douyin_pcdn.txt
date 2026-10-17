@@ -1,6 +1,6 @@
 #抖音 PCDN 精准屏蔽【终极精简版】
 
-||*.idouyinvod.com^$important
+#||*.idouyinvod.com^$important
 ||flive.ixigua.com^$important
 ||flive.douyincdn.com^$important
 
