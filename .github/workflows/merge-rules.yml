@@ -35,6 +35,14 @@ jobs:
               sed -e 's/\r//g' -e '/^[[:space:]]*$/d' -e '/^[!#]/d' -e 's#^#||#; s#$#^$client='\''直连'\''#'
           } > merged/adg_gfw_direct.txt
 
+          # 转换为仅对“代理”客户端生效的 GFW HTTPS/SVCB 降级规则 (防 Fake-IP 绕过与 ECH 阻断)
+          {
+            echo "! Title: GFW HTTPS/SVCB Rewrite (Proxy Clients Only)"
+            echo "! Updated: $(date -u '+%Y-%m-%d %H:%M:%S UTC')"
+            curl -sL "https://raw.githubusercontent.com/Loyalsoldier/v2ray-rules-dat/release/gfw.txt" | \
+              sed -e 's/\r//g' -e '/^[[:space:]]*$/d' -e '/^[!#]/d' -e 's#^#||#; s#$#^$dnstype=HTTPS|SVCB,dnsrewrite=NOERROR,client='\''代理'\''#'
+          } > merged/adg_gfw_https_reject.txt
+
       - name: Commit and push
         uses: stefanzweifel/git-auto-commit-action@v7
         with:
