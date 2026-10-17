@@ -1,5 +1,5 @@
 ! Title: GFW Blocklist (Direct Clients Only)
-! Updated: 2026-10-16 19:12:49 UTC
+! Updated: 2026-10-17 07:38:03 UTC
 ||000webhost.com^$client='直连'
 ||0rz.tw^$client='直连'
 ||1-apple.com.tw^$client='直连'
@@ -60,6 +60,7 @@
 ||6parker.com^$client='直连'
 ||6parknews.com^$client='直连'
 ||7capture.com^$client='直连'
+||7x24hrs.com^$client='直连'
 ||8-d.com^$client='直连'
 ||85cc.us^$client='直连'
 ||881903.com^$client='直连'
@@ -2462,7 +2463,9 @@
 ||meripet.com^$client='直连'
 ||merit-times.com.tw^$client='直连'
 ||messenger.com^$client='直连'
+||meta.ai^$client='直连'
 ||meta.com^$client='直连'
+||metaaivm.com^$client='直连'
 ||metafilter.com^$client='直连'
 ||metamask.io^$client='直连'
 ||metart.com^$client='直连'
