@@ -40,7 +40,7 @@ jobs:
             echo "! Title: GFW HTTPS/SVCB Rewrite (Proxy Clients Only)"
             echo "! Updated: $(date -u '+%Y-%m-%d %H:%M:%S UTC')"
             curl -sL "https://raw.githubusercontent.com/Loyalsoldier/v2ray-rules-dat/release/gfw.txt" | \
-              sed -e 's/\r//g' -e '/^[[:space:]]*$/d' -e '/^[!#]/d' -e 's#^#||#; s#$#^$dnstype=HTTPS|SVCB,dnsrewrite=NOERROR,client=代理|OC#'
+              sed -e 's/\r//g' -e '/^[[:space:]]*$/d' -e '/^[!#]/d' -e 's#^#||#; s#$#^$dnstype=HTTPS|SVCB,dnsrewrite=NOERROR,client=代理#'
           } > merged/adg_gfw_https_reject.txt
 
       - name: Commit and push
