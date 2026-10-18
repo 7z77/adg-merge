@@ -1,7 +1,7 @@
 !
 ! Title: Merged ADG Rules (CN Optimized)
 ! Description: anti-AD + AWAvenue (含PCDN) + HaGeZi DoH + HaGeZi Referral Allowlist
-! Last modified: 2026-10-17T16:55:17.942Z
+! Last modified: 2026-10-18T07:53:36.648Z
 !
 ! Compiled by @adguard/hostlist-compiler v2.1.1
 !
@@ -105712,6 +105712,8 @@
 @@||ad.doubleclick.net^
 @@||ad.dyntracker.de^
 @@||ad.lifesight.io^
+@@||ad.trafficgate.net^
+@@||ad2.trafficgate.net^
 @@||adaxxcloud.com^
 @@||adfoc.us^
 @@||adform.com^
@@ -106200,6 +106202,7 @@
 @@||metric.picodi.com^
 @@||mg.mail.notion.so^
 @@||micpn.com^
+@@||mjt.lu^
 @@||mkto-*.com^
 @@||mktoweb.com^
 @@||mmtro.com^
