@@ -12,10 +12,10 @@ jobs:
       contents: write
 
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
 
       - name: Setup Node.js
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v5
         with:
           node-version: 22
 
@@ -28,7 +28,9 @@ jobs:
           hostlist-compiler -c config.json -o merged/adg-rules.txt
 
       - name: Commit and push
-        uses: stefanzweifel/git-auto-commit-action@v5
-        with:
-          commit_message: "chore: auto-merge ADG rules"
-          file_pattern: "merged/*.txt"
+        run: |
+          git config --local user.email "github-actions[bot]@users.noreply.github.com"
+          git config --local user.name "github-actions[bot]"
+          git add merged/*.txt
+          git commit -m "chore: auto-merge ADG rules [skip ci]" || exit 0
+          git push
