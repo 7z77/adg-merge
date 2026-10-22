@@ -27,16 +27,55 @@ jobs:
           mkdir -p merged
           hostlist-compiler -c config.json -o merged/adg-rules.txt
 
-          # 拉取 Loyalsoldier 的 GFW 域名列表并转换为仅对“直连”客户端生效的 AdGuard 规则
-          {
-            echo "! Title: GFW Blocklist (Direct Clients Only)"
-            echo "! Updated: $(date -u '+%Y-%m-%d %H:%M:%S UTC')"
-            curl -sL "https://raw.githubusercontent.com/Loyalsoldier/v2ray-rules-dat/release/gfw.txt" | \
-              sed -e 's/\r//g' -e '/^[[:space:]]*$/d' -e '/^[!#]/d' -e 's#^#||#; s#$#^$client='\''直连'\''#'
-          } > merged/adg_gfw_direct.txt
+      - name: Convert to Loon format
+        run: |
+          python3 -c '
+          import re
+
+          input_file = "merged/adg-rules.txt"
+          output_file = "merged/loon-rules.list"
+          rules = []
+
+          with open(input_file, "r", encoding="utf-8") as f:
+              for line in f:
+                  line = line.strip()
+                  # 过滤空行与注释
+                  if not line or line.startswith("!") or line.startswith("#"):
+                      continue
+                  
+                  # 转换白名单放行规则 (如 @@||example.com^ 或 @@example.com)
+                  if line.startswith("@@"):
+                      clean = re.sub(r"^@@\|\|?", "", line)
+                      clean = re.sub(r"\^.*$", "", clean).strip()
+                      if clean and "/" not in clean and "*" not in clean:
+                          rules.append(f"DOMAIN-SUFFIX,{clean},DIRECT")
+                  # 转换拦截规则 (如 ||example.com^ 或 hosts 模式)
+                  else:
+                      clean = re.sub(r"^\|\|", "", line)
+                      clean = re.sub(r"\^.*$", "", clean).strip()
+                      # 处理 hosts 格式 0.0.0.0 domain
+                      if clean.startswith("0.0.0.0 ") or clean.startswith("127.0.0.1 "):
+                          parts = clean.split()
+                          if len(parts) > 1:
+                              clean = parts[1]
+                      if clean and "/" not in clean and "*" not in clean:
+                          rules.append(f"DOMAIN-SUFFIX,{clean},REJECT")
+
+          # 保持原顺序去重
+          seen = set()
+          deduped_rules = []
+          for r in rules:
+              if r not in seen:
+                  seen.add(r)
+                  deduped_rules.append(r)
+
+          with open(output_file, "w", encoding="utf-8") as out:
+              out.write("\n".join(deduped_rules) + "\n")
+          print(f"Loon 规则转换完成，共生成 {len(deduped_rules)} 条规则")
+          '
 
       - name: Commit and push
         uses: stefanzweifel/git-auto-commit-action@v7
         with:
-          commit_message: "chore: auto-merge ADG rules"
-          file_pattern: "merged/*.txt"
+          commit_message: "chore: auto-merge ADG rules & loon list"
+          file_pattern: "merged/*"
