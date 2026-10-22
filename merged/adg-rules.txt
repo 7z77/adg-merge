@@ -1,7 +1,7 @@
 !
 ! Title: Merged ADG Rules (CN Optimized)
 ! Description: anti-AD + AWAvenue (含PCDN) + HaGeZi DoH + HaGeZi Referral Allowlist
-! Last modified: 2026-10-21T08:23:46.709Z
+! Last modified: 2026-10-22T07:47:36.413Z
 !
 ! Compiled by @adguard/hostlist-compiler v2.1.1
 !
