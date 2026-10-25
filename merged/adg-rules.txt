@@ -1,7 +1,7 @@
 !
 ! Title: Merged ADG Rules (CN Optimized)
 ! Description: anti-AD + AWAvenue (含PCDN) + HaGeZi DoH + HaGeZi Referral Allowlist
-! Last modified: 2026-10-24T07:43:22.520Z
+! Last modified: 2026-10-25T07:54:30.034Z
 !
 ! Compiled by @adguard/hostlist-compiler v2.1.1
 !
@@ -46871,7 +46871,6 @@
 ||t.iz55.com^
 ||e.izaos.com^
 ||m.izaos.com^
-||izatcloud.net^
 ||izavjtqqznucm.site^
 ||izaybwqvajljf.space^
 ||izccryctmxtwb.website^
@@ -104746,6 +104745,7 @@
 ||prg01.dnscry.pt^
 ||rdd01.dnscry.pt^
 ||rix01.dnscry.pt^
+||sao01.dnscry.pt^
 ||sea01.dnscry.pt^
 ||sel02.dnscry.pt^
 ||sgn01.dnscry.pt^
