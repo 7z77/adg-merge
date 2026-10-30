@@ -27,10 +27,33 @@ jobs:
           mkdir -p merged
           hostlist-compiler -c config.json -o merged/adg-rules.txt
 
+      - name: Generate ADG GFW Block Rules for Direct Group
+        run: |
+          mkdir -p merged
+          OUT="merged/adg_gfw_direct.txt"
+
+          # 1. 写入规则头部说明
+          cat << 'EOF' > "$OUT"
+          ! Title: ADG GFW Direct Group Blocklist
+          ! Description: GFW block rules restricted to AdGuard Home client group '直连'
+          ! Updated: $(date -u +"%Y-%m-%d %H:%M:%S UTC")
+          ! --------------------------------------------------
+          EOF
+
+          # 2. 从官方源拉取 GFW 域名并生成 AdGuard 客户端限制规则: ||domain^$client='直连'
+          curl -sSL "https://raw.githubusercontent.com/Loyalsoldier/v2ray-rules-dat/release/gfw.txt" | \
+            sed 's/\r//g' | \
+            grep -Ev '^($|[#;!])' | \
+            sed 's/^[[:space:]]*//;s/[[:space:]]*$//' | \
+            sort -u | \
+            awk '{print "||" $0 "^$client=\x27直连\x27"}' >> "$OUT"
+
+          echo "Successfully generated $OUT with $(grep -c '^\x7c\x7c' "$OUT") rules."
+
       - name: Commit and push
         run: |
           git config --local user.email "github-actions[bot]@users.noreply.github.com"
           git config --local user.name "github-actions[bot]"
           git add merged/*.txt
-          git commit -m "chore: auto-merge ADG rules [skip ci]" || exit 0
+          git commit -m "chore: auto-merge ADG rules & gfw direct blocklist [skip ci]" || exit 0
           git push
