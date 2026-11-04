@@ -1,51 +1,68 @@
+# ==============================================================================
+# 工作流名称：自动编译 ADG 规则与生成直连组 GFW 阻断列表
+# ==============================================================================
 name: Merge ADG Rules
 
 on:
+  # 定时任务触发：每天 UTC 时间 03:00（对应北京时间 11:00）自动执行
   schedule:
     - cron: '0 3 * * *'
+  # 手动触发：允许在 GitHub 网页端的 Actions 页面随时手动点击 "Run workflow"
   workflow_dispatch:
 
 jobs:
   merge:
+    # 运行环境：使用最新的 Ubuntu 24.04 容器运行
     runs-on: ubuntu-24.04
+    
+    # 权限配置：赋予 GITHUB_TOKEN 对仓库内容的写入权限，用于 push 提交生成的规则文件
     permissions:
       contents: write
 
     steps:
-      - uses: actions/checkout@v5
+      # 步骤 1：检出仓库代码到容器中
+      - name: Checkout repository
+        uses: actions/checkout@v5
 
+      # 步骤 2：配置 Node.js 运行环境（用于运行 hostlist-compiler 编译器）
       - name: Setup Node.js
         uses: actions/setup-node@v5
         with:
           node-version: 22
 
+      # 步骤 3：全局安装 AdGuard 官方规则合并编译器
       - name: Install Compiler
         run: npm install -g @adguard/hostlist-compiler
 
+      # 步骤 4：根据 config.json 中的上游订阅合并编译常规广告拦截规则（保持原样，不修改）
       - name: Compile and merge rules
         run: |
           mkdir -p merged
           hostlist-compiler -c config.json -o merged/adg-rules.txt
 
-          # 1. 替换为标准北京时间格式
-          CURRENT_TIME=$(TZ='Asia/Shanghai' date +"%Y-%m-%d %H:%M:%S CST")
-          sed -i "s|^! Last modified:.*|! Last modified: ${CURRENT_TIME}|" merged/adg-rules.txt
-
+      # 步骤 5：单独抓取 GFW 域名列表并生成带北京时间、且仅限制“直连”客户端生效的专属规则
       - name: Generate ADG GFW Block Rules for Direct Group
         run: |
           mkdir -p merged
           OUT="merged/adg_gfw_direct.txt"
 
-          # 1. 安全获取北京时间
+          # 5.1 获取标准北京时间（强制 Asia/Shanghai 时区，格式如：2026-11-04 11:00:00 CST）
           CURRENT_TIME=$(TZ='Asia/Shanghai' date +"%Y-%m-%d %H:%M:%S CST")
 
-          # 2. 写入规则头部说明
+          # 5.2 使用 echo 逐行写入文件头部注释信息
+          # 注：避免在 Shell 中使用包含感叹号 ! 的多行输入（如 cat << EOF），防止触发 Bash 历史命令扩展语法报错
           echo "! Title: ADG GFW Direct Group Blocklist" > "$OUT"
           echo "! Description: GFW block rules restricted to AdGuard Home client group '直连'" >> "$OUT"
           echo "! Updated: ${CURRENT_TIME}" >> "$OUT"
           echo "! --------------------------------------------------" >> "$OUT"
 
-          # 3. 从官方源拉取 GFW 域名并生成 AdGuard 客户端限制规则: ||domain^$client='直连'
+          # 5.3 规则处理管道说明：
+          # 1) curl: 从 Loyalsoldier 仓库实时拉取最新的 gfw.txt 域名源
+          # 2) sed 's/\r//g': 去除 Windows 换行符（CRLF 转换为 LF）
+          # 3) grep: 过滤掉空白行以及包含 #、;、! 的注释行
+          # 4) sed: 去除每一行行首和行尾的空白字符
+          # 5) sort -u: 域名去重并按字典序排序
+          # 6) awk: 拼装为 AdGuard 专属语法（||域名^$client='直连'），并追加写入目标文件
           curl -sSL "https://raw.githubusercontent.com/Loyalsoldier/v2ray-rules-dat/release/gfw.txt" | \
             sed 's/\r//g' | \
             grep -Ev '^($|[#;!])' | \
@@ -53,12 +70,21 @@ jobs:
             sort -u | \
             awk '{print "||" $0 "^$client=\x27直连\x27"}' >> "$OUT"
 
+          # 终端打印生成的有效规则行数统计
           echo "Successfully generated $OUT with $(grep -c '^\x7c\x7c' "$OUT") rules."
 
+      # 步骤 6：将更新后的规则提交并推送到当前 GitHub 仓库
       - name: Commit and push
         run: |
+          # 配置自动化提交时显示的 Git 用户名与邮箱
           git config --local user.email "github-actions[bot]@users.noreply.github.com"
           git config --local user.name "github-actions[bot]"
+
+          # 暂存生成的规则文件
           git add merged/*.txt
+
+          # 提交更改（[skip ci] 标记用于防止自身 push 再次触发循环构建；若无任何变动则 exit 0 优雅退出）
           git commit -m "chore: auto-merge ADG rules & gfw direct blocklist [skip ci]" || exit 0
+
+          # 推送到仓库分支
           git push
