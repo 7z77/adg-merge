@@ -8,8 +8,6 @@ on:
 jobs:
   merge:
     runs-on: ubuntu-24.04
-    env:
-      TZ: 'Asia/Shanghai'
     permissions:
       contents: write
 
@@ -29,15 +27,19 @@ jobs:
           mkdir -p merged
           hostlist-compiler -c config.json -o merged/adg-rules.txt
 
+          # 1. 替换为标准北京时间格式
+          CURRENT_TIME=$(TZ='Asia/Shanghai' date +"%Y-%m-%d %H:%M:%S CST")
+          sed -i "s|^! Last modified:.*|! Last modified: ${CURRENT_TIME}|" merged/adg-rules.txt
+
       - name: Generate ADG GFW Block Rules for Direct Group
         run: |
           mkdir -p merged
           OUT="merged/adg_gfw_direct.txt"
 
-          # 1. 先安全获取北京时间字符串
-          CURRENT_TIME=$(date +"%Y-%m-%d %H:%M:%S CST")
+          # 1. 安全获取北京时间
+          CURRENT_TIME=$(TZ='Asia/Shanghai' date +"%Y-%m-%d %H:%M:%S CST")
 
-          # 2. 写入规则头部说明（避免 EOF 内的感叹号与 Shell 语法冲突）
+          # 2. 写入规则头部说明
           echo "! Title: ADG GFW Direct Group Blocklist" > "$OUT"
           echo "! Description: GFW block rules restricted to AdGuard Home client group '直连'" >> "$OUT"
           echo "! Updated: ${CURRENT_TIME}" >> "$OUT"
