@@ -1,6 +1,6 @@
 ! Title: ADG GFW Direct Group Blocklist
 ! Description: GFW block rules restricted to AdGuard Home client group '直连'
-! Updated: $(date -u +"%Y-%m-%d %H:%M:%S UTC")
+! Updated: 2026-11-04 11:50:00 CST
 ! --------------------------------------------------
 ||000webhost.com^$client='直连'
 ||0rz.tw^$client='直连'
@@ -410,6 +410,7 @@
 ||bignews.org^$client='直连'
 ||bigone.com^$client='直连'
 ||bild.de^$client='直连'
+||bilibili.tv^$client='直连'
 ||bilinovel.com^$client='直连'
 ||biliworld.com^$client='直连'
 ||binance.com^$client='直连'

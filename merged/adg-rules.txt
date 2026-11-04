@@ -1,7 +1,7 @@
 !
 ! Title: Merged ADG Rules (CN Optimized)
 ! Description: anti-AD + AWAvenue (含PCDN) + HaGeZi DoH + HaGeZi Referral Allowlist
-! Last modified: 2026-11-03T10:17:07.181Z
+! Last modified: 2026-11-04T03:50:00.300Z
 !
 ! Compiled by @adguard/hostlist-compiler v2.1.1
 !
@@ -101801,7 +101801,6 @@
 ||dns.oliviertv.co.za^
 ||dns.rawalker.co.nz^
 ||dns.safesurfer.co.nz^
-||dns.scxrdev.co.uk^
 ||dns.skuy.co.id^
 ||dns.spil.co.id^
 ||dns.srinivasrao.co.in^
@@ -101839,7 +101838,6 @@
 ||dns.damlayayinevi.com.tr^
 ||adguard.doranpierst.com.tr^
 ||adguard.gbrossi.com.br^
-||dns2.gregoret.com.ar^
 ||blackhole.gugainfo.com.br^
 ||dns.hub.com.de^
 ||adguardcloud.iasm.com.ar^
@@ -104408,6 +104406,7 @@
 ||baxtri.ru^
 ||bazooki-infra.dev^
 ||beacon.dog^
+||beatquantum.com^
 ||berd.moe^
 ||bestwon203.com^
 ||blockdns.com^
