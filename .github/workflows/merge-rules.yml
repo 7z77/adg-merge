@@ -8,7 +8,6 @@ on:
 jobs:
   merge:
     runs-on: ubuntu-24.04
-    # 全局注入北京时间环境变量，让 Node.js 和 hostlist-compiler 统一走东八区
     env:
       TZ: 'Asia/Shanghai'
     permissions:
@@ -35,15 +34,16 @@ jobs:
           mkdir -p merged
           OUT="merged/adg_gfw_direct.txt"
 
-          # 1. 动态生成北京时间头部
-          cat << EOF > "$OUT"
-! Title: ADG GFW Direct Group Blocklist
-! Description: GFW block rules restricted to AdGuard Home client group '直连'
-! Updated: $(date +"%Y-%m-%d %H:%M:%S CST")
-! --------------------------------------------------
-EOF
+          # 1. 先安全获取北京时间字符串
+          CURRENT_TIME=$(date +"%Y-%m-%d %H:%M:%S CST")
 
-          # 2. 从官方源拉取 GFW 域名并生成 AdGuard 客户端限制规则: ||domain^$client='直连'
+          # 2. 写入规则头部说明（避免 EOF 内的感叹号与 Shell 语法冲突）
+          echo "! Title: ADG GFW Direct Group Blocklist" > "$OUT"
+          echo "! Description: GFW block rules restricted to AdGuard Home client group '直连'" >> "$OUT"
+          echo "! Updated: ${CURRENT_TIME}" >> "$OUT"
+          echo "! --------------------------------------------------" >> "$OUT"
+
+          # 3. 从官方源拉取 GFW 域名并生成 AdGuard 客户端限制规则: ||domain^$client='直连'
           curl -sSL "https://raw.githubusercontent.com/Loyalsoldier/v2ray-rules-dat/release/gfw.txt" | \
             sed 's/\r//g' | \
             grep -Ev '^($|[#;!])' | \
