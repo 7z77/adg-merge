@@ -1,7 +1,7 @@
 !
 ! Title: Merged ADG Rules (CN Optimized)
 ! Description: anti-AD + AWAvenue (含PCDN) + HaGeZi DoH + HaGeZi Referral Allowlist
-! Last modified: 2026-11-05T10:28:21.282Z
+! Last modified: 2026-11-06T10:29:52.245Z
 !
 ! Compiled by @adguard/hostlist-compiler v2.1.1
 !
@@ -102400,6 +102400,8 @@
 ||myagh.claptrap.me^
 ||adguard.clawsucht.eu^
 ||prdot.cldsrv.es^
+||dns.cleardns.io^
+||dot.cleardns.io^
 ||cvt-ic-us-adns-001.clearviewtechnology.net^
 ||midns.clicinternet.com^
 ||dns.clickhost.xyz^
@@ -103251,7 +103253,6 @@
 ||alyus.geri.vip^
 ||geshido.vpn.geshido.ru^
 ||roma.vpn.geshido.ru^
-||dns.getnoclip.link^
 ||ashixu.ggff.net^
 ||adguard.ghkyzz.us^
 ||dns.ghost.pm^
@@ -103370,13 +103371,11 @@
 ||pihole2.hoerli.net^
 ||pihole3.hoerli.net^
 ||pihole4.hoerli.net^
-||dns.hoian.one^
 ||cloud2.holzmannclouddns.de^
 ||socolov.home.ro^
 ||dns4.home-albrecht.com^
 ||dns5.home-albrecht.com^
 ||pi.homeanywhere.org^
-||admin.homedns.uk^
 ||isolacje.homeip.net^
 ||adguard01.homepeter.de^
 ||dns.hopsken.com^
@@ -103401,7 +103400,6 @@
 ||dns.hotta.page^
 ||dns.housedenolf.be^
 ||freemnt.hpitto.com^
-||dns.hqdns.sarl^
 ||doh.hshkf.com^
 ||dns.hshoe.cn^
 ||pub.hsuan.ink^
@@ -103558,7 +103556,6 @@
 ||host.jerry-lee.uk^
 ||dns.jerrylee.uk^
 ||dns.jerryw.cn^
-||adguard.jfchenier.ca^
 ||dns.jhangy.us^
 ||dns.jichi.io^
 ||dns.jimirobaer.be^

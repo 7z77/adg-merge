@@ -1,6 +1,6 @@
 ! Title: ADG GFW Direct Group Blocklist
 ! Description: GFW block rules restricted to AdGuard Home client group '直连'
-! Updated: 2026-11-05 18:28:21 CST
+! Updated: 2026-11-06 18:29:52 CST
 ! --------------------------------------------------
 ||000webhost.com^$client='直连'
 ||0rz.tw^$client='直连'
@@ -2440,7 +2440,6 @@
 ||matters.town^$client='直连'
 ||matthewdgreen.wordpress.com^$client='直连'
 ||mattwilcox.net^$client='直连'
-||maven.neoforged.net^$client='直连'
 ||mcadforums.com^$client='直连'
 ||mcaf.ee^$client='直连'
 ||mceindex.com^$client='直连'
@@ -2649,6 +2648,7 @@
 ||nekoslovakia.net^$client='直连'
 ||neo-miracle.com^$client='直连'
 ||neodb.social^$client='直连'
+||neoforged.net^$client='直连'
 ||neowin.net^$client='直连'
 ||nephobox.com^$client='直连'
 ||netalert.me^$client='直连'
