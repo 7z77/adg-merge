@@ -1,7 +1,7 @@
 !
 ! Title: Merged ADG Rules (CN Optimized)
 ! Description: anti-AD + AWAvenue (含PCDN) + HaGeZi DoH + HaGeZi Referral Allowlist
-! Last modified: 2026-11-06T10:29:52.245Z
+! Last modified: 2026-11-07T09:43:30.289Z
 !
 ! Compiled by @adguard/hostlist-compiler v2.1.1
 !
@@ -103791,7 +103791,6 @@
 ||ag.marschi.de^
 ||dns.marschi.de^
 ||ddns.martinmore.online^
-||adguard.marto.si^
 ||extra.mask.ad^
 ||standard.mask.ad^
 ||doh.maskab.com^
@@ -103846,7 +103845,6 @@
 ||dns.mipauns.com^
 ||guard.miracloud.fr^
 ||netcup.mismat.ch^
-||dns.miyun1.com^
 ||doh.mmmalia.com^
 ||dns.mnet-online.de^
 ||dns.mni.li^
@@ -103866,7 +103864,6 @@
 ||dns.moondip.net^
 ||dns.moonssif.com^
 ||dns.moonwx.net^
-||akunamatata8888.mooo.com^
 ||disinformer.mooo.com^
 ||e23a.mooo.com^
 ||feellike.mooo.com^
@@ -104067,7 +104064,6 @@
 ||adguard.niko-sem.com^
 ||dnx.niko-sem.com^
 ||dns.ningkelle.id^
-||dns.ninhs.org^
 ||doh.niyawe.de^
 ||dns.njal.la^
 ||daemonhunt.no-ip.org^
@@ -104186,7 +104182,6 @@
 ||dns.pacificmonster.com^
 ||dns.paesa.es^
 ||dns.paliska.net^
-||adguard.pancybertronics.com^
 ||adguard.pangerl.it^
 ||dns.panszelescik.pl^
 ||dns-ovh.panszelescik.pl^
@@ -104255,7 +104250,6 @@
 ||angry.pp.ua^
 ||dnscloud.pp.ua^
 ||gruppo.pp.ua^
-||guard.pp.ua^
 ||lindung.pp.ua^
 ||pad3w.pp.ua^
 ||reskah.pp.ua^
@@ -105299,7 +105293,6 @@
 ||mysolod.xyz^
 ||myv2ray.cn^
 ||n0.eu^
-||n8nmegapixar.online^
 ||najiakeji.top^
 ||nelsonleung.org^
 ||nickcan.xyz^
@@ -105336,9 +105329,7 @@
 ||philqoo.com^
 ||phongg.vn^
 ||pingbi.xyz^
-||pm1239-bd.xyz^
 ||pm7051-br.xyz^
-||pm9352-bd.xyz^
 ||polisitogel.beauty^
 ||polisitogel.contractors^
 ||polisitogel.hair^
