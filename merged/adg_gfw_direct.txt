@@ -1,6 +1,6 @@
 ! Title: ADG GFW Direct Group Blocklist
 ! Description: GFW block rules restricted to AdGuard Home client group '直连'
-! Updated: 2026-11-10 18:51:16 CST
+! Updated: 2026-11-11 18:28:15 CST
 ! --------------------------------------------------
 ||000webhost.com^$client='直连'
 ||0rz.tw^$client='直连'
