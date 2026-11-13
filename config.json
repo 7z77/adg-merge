@@ -1,20 +1,25 @@
 {
   "name": "Merged ADG Rules (CN Optimized)",
-  "description": "anti-AD + AWAvenue (含PCDN) + HaGeZi DoH + HaGeZi Referral Allowlist",
+  "description": "AdRules + AWAvenue(含PCDN) + HaGeZi Light(隐私) + DoH Bypass + Referral Allowlist",
   "sources": [
-    {
-      "name": "anti-AD (DNS)",
-      "source": "https://raw.githubusercontent.com/privacy-protection-tools/anti-AD/master/anti-ad-adguard.txt",
-      "type": "adblock"
-    },
     {
       "name": "AWAvenue Ads Rule",
       "source": "https://raw.githubusercontent.com/TG-Twilight/AWAvenue-Ads-Rule/main/AWAvenue-Ads-Rule.txt",
       "type": "adblock"
     },
     {
-      "name": "HaGeZi DoH Blocklist",
-      "source": "https://raw.githubusercontent.com/hagezi/dns-blocklists/main/adblock/doh.txt",
+      "name": "AdRules DNS List",
+      "source": "https://raw.githubusercontent.com/Cats-Team/AdRules/main/dns.txt",
+      "type": "adblock"
+    },
+    {
+      "name": "HaGeZi Multi LIGHT",
+      "source": "https://raw.githubusercontent.com/hagezi/dns-blocklists/main/adblock/light.txt",
+      "type": "adblock"
+    },
+    {
+      "name": "HaGeZi DoH/VPN/Proxy Bypass",
+      "source": "https://raw.githubusercontent.com/hagezi/dns-blocklists/main/adblock/doh-vpn-proxy-bypass.txt",
       "type": "adblock"
     },
     {
@@ -25,7 +30,11 @@
   ],
   "transformations": [
     "RemoveComments",
+    "RemoveModifiers",
+    "Compress",
+    "Validate",
     "Deduplicate",
-    "Compress"
+    "RemoveEmptyLines",
+    "TrimLines"
   ]
 }
