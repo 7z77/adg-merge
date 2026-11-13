@@ -1,6 +1,6 @@
 {
   "name": "Merged ADG Rules (CN Optimized)",
-  "description": "AdRules + AWAvenue(含PCDN) + HaGeZi Light(隐私) + DoH Bypass + Referral Allowlist",
+  "description": "AdRules + AWAvenue(含PCDN) + HaGeZi Light(隐私) + DoH + Referral Allowlist + TIF Mini(防恶意软件)",
   "sources": [
     {
       "name": "AWAvenue Ads Rule",
@@ -18,13 +18,18 @@
       "type": "adblock"
     },
     {
-      "name": "HaGeZi DoH/VPN/Proxy Bypass",
-      "source": "https://raw.githubusercontent.com/hagezi/dns-blocklists/main/adblock/doh-vpn-proxy-bypass.txt",
+      "name": "HaGeZi DoH Blocklist",
+      "source": "https://raw.githubusercontent.com/hagezi/dns-blocklists/main/adblock/doh.txt",
       "type": "adblock"
     },
     {
       "name": "HaGeZi Referral Allowlist",
       "source": "https://raw.githubusercontent.com/hagezi/dns-blocklists/main/adblock/whitelist-referral.txt",
+      "type": "adblock"
+    },
+    {
+      "name": "HaGeZi Threat Intelligence Feeds (Mini)",
+      "source": "https://raw.githubusercontent.com/hagezi/dns-blocklists/main/adblock/tif.mini.txt",
       "type": "adblock"
     }
   ],
