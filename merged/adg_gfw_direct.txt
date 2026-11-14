@@ -1,6 +1,6 @@
 ! Title: ADG GFW Direct Group Blocklist
 ! Description: GFW block rules restricted to AdGuard Home client group '直连'
-! Updated: 2026-11-13 23:08:29 CST
+! Updated: 2026-11-14 17:53:31 CST
 ! --------------------------------------------------
 ||000webhost.com^$client='直连'
 ||0rz.tw^$client='直连'
@@ -50,6 +50,7 @@
 ||51.ca^$client='直连'
 ||51jav.org^$client='直连'
 ||51luoben.com^$client='直连'
+||51papaya.com^$client='直连'
 ||5278.cc^$client='直连'
 ||611study.com^$client='直连'
 ||611study.icu^$client='直连'
