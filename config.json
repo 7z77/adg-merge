@@ -1,6 +1,6 @@
 {
   "name": "Merged ADG Rules (CN Optimized)",
-  "description": "AdRules + AWAvenue(含PCDN) + HaGeZi Light(隐私) + DoH + uBlock Ads + Referral Allowlist",
+  "description": "AdRules + AWAvenue(含PCDN) + HaGeZi Light(隐私) + DoH + Referral Allowlist",
   "sources": [
     {
       "name": "AWAvenue Ads Rule",
@@ -20,11 +20,6 @@
     {
       "name": "HaGeZi DoH Blocklist",
       "source": "https://raw.githubusercontent.com/hagezi/dns-blocklists/main/adblock/doh.txt",
-      "type": "adblock"
-    },
-    {
-      "name": "uBlock filters – Ads",
-      "source": "https://ublockorigin.github.io/uAssetsCDN/filters/filters.min.txt",
       "type": "adblock"
     },
     {
