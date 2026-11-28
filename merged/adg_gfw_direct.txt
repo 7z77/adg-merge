@@ -1,6 +1,6 @@
 ! Title: ADG GFW Direct Group Blocklist
 ! Description: GFW block rules restricted to AdGuard Home client group '直连'
-! Updated: 2026-11-27 19:51:46 CST
+! Updated: 2026-11-28 19:27:12 CST
 ! --------------------------------------------------
 ||000webhost.com^$client='直连'
 ||0rz.tw^$client='直连'
@@ -137,6 +137,7 @@
 ||agro.hk^$client='直连'
 ||ai.dev^$client='直连'
 ||ai.studio^$client='直连'
+||aicu.cc^$client='直连'
 ||aidc.com.tw^$client='直连'
 ||aihub.top^$client='直连'
 ||aiosearch.com^$client='直连'
@@ -963,6 +964,7 @@
 ||daliulian.org^$client='直连'
 ||danbooru.donmai.us^$client='直连'
 ||danke4china.net^$client='直连'
+||danmakus.com^$client='直连'
 ||darmau.co^$client='直连'
 ||darpa.mil^$client='直连'
 ||darrenliuwei.com^$client='直连'
@@ -3421,6 +3423,7 @@
 ||southnews.com.tw^$client='直连'
 ||southpark.cc.com^$client='直连'
 ||sowers.org.hk^$client='直连'
+||spacedesk.net^$client='直连'
 ||spaceforce.mil^$client='直连'
 ||spaces.hightail.com^$client='直连'
 ||spacex.com^$client='直连'
